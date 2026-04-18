@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://djxq7yek2r7cc"]
+
+[ext_resource type="Script" uid="uid://cjrl1fw88eo1t" path="res://stack.gd" id="1_8uh7m"]
+[ext_resource type="Texture2D" uid="uid://djelt3m1ka8ak" path="res://assets/sprites/cars/red/body.png" id="2_6uqi0"]
+[ext_resource type="Script" uid="uid://dsc66uur2c7ni" path="res://net/client/client.gd" id="3_6uqi0"]
+
+[node name="Node2D" type="Node2D" unique_id=847627624]
+
+[node name="Stack" type="Node2D" parent="." unique_id=1996168224]
+position = Vector2(168, 142)
+script = ExtResource("1_8uh7m")
+tex = ExtResource("2_6uqi0")
+frames = 7
+stack_rotation = 47361.83333321633
+metadata/_custom_type_script = "uid://cjrl1fw88eo1t"
+
+[node name="Node" type="Node" parent="." unique_id=690622078]
+script = ExtResource("3_6uqi0")

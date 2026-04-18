@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dhl7luqi38w7v"]
+
+[ext_resource type="Script" uid="uid://di482b8vhd1av" path="res://net/server/rtc_server.gd" id="1_rw4x6"]
+
+[node name="Server" type="Node" unique_id=1073394281]
+script = ExtResource("1_rw4x6")

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c6xmp3n3oiww4"]
+
+[ext_resource type="Script" uid="uid://cjrl1fw88eo1t" path="res://stack.gd" id="1_hmspu"]
+
+[node name="Stack" type="Node2D" unique_id=1876254046]
+script = ExtResource("1_hmspu")
+stack_rotation = 406.0000000000112
