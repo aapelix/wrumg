@@ -47,7 +47,6 @@ axis_stretch_horizontal = 1
 
 [node name="Login" type="Node2D" unique_id=179489370]
 script = ExtResource("1_gsgx3")
-appwriteUrl = "https://fra.cloud.appwrite.io/v1"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=993359362]
 download_chunk_size = 4096
