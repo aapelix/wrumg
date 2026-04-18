@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://1utvxe1o5w3s" path="res://assets/font-small.ttf" id="2_afca7"]
 [ext_resource type="StyleBox" uid="uid://fjttxa7mbnt4" path="res://button_box.tres" id="3_afca7"]
 [ext_resource type="Texture2D" uid="uid://bv1lyhly1t7km" path="res://assets/sprites/box.png" id="3_bbdy7"]
+[ext_resource type="Texture2D" uid="uid://n8kcnpet2f1h" path="res://assets/sprites/otp.png" id="5_dtqtj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bbdy7"]
 content_margin_left = 4.0
@@ -15,22 +16,56 @@ texture_margin_right = 3.0
 texture_margin_bottom = 3.0
 modulate_color = Color(1, 1, 1, 0.654902)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtqtj"]
+content_margin_left = 4.0
+content_margin_top = 7.0
+texture = ExtResource("3_bbdy7")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.57, 0.57, 0.57, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fc3cw"]
+content_margin_left = 4.0
+content_margin_top = 7.0
+texture = ExtResource("3_bbdy7")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="FontVariation" id="FontVariation_dtqtj"]
+base_font = ExtResource("2_afca7")
+spacing_glyph = 18
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sh3bq"]
+content_margin_left = 9.0
+content_margin_top = 5.0
+texture = ExtResource("5_dtqtj")
+axis_stretch_horizontal = 1
+
 [node name="Login" type="Node2D" unique_id=179489370]
 script = ExtResource("1_gsgx3")
+appwriteUrl = "https://fra.cloud.appwrite.io/v1"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=993359362]
 download_chunk_size = 4096
 
-[node name="Button" type="Button" parent="." unique_id=99777749]
+[node name="Camera" type="Camera2D" parent="." unique_id=907102551]
+
+[node name="Email" type="Node2D" parent="." unique_id=128127712]
+
+[node name="LoginButton" type="Button" parent="Email" unique_id=99777749]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -34.0
-offset_top = -22.0
-offset_right = 34.0
-offset_bottom = -1.0
+offset_left = 1.0
+offset_top = 11.0
+offset_right = 60.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -39,30 +74,187 @@ theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = ExtResource("3_afca7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_bbdy7")
 text = "Login"
+metadata/_edit_use_anchors_ = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=907102551]
-
-[node name="LineEdit" type="LineEdit" parent="." unique_id=957612094]
+[node name="CancelButton" type="Button" parent="Email" unique_id=214789849]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -34.0
-offset_top = -45.0
-offset_right = 34.0
-offset_bottom = -24.0
+offset_left = -60.0
+offset_top = 11.0
+offset_right = -1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_afca7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_dtqtj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bbdy7")
+text = "Cancel"
+metadata/_edit_use_anchors_ = true
+
+[node name="EmailInput" type="LineEdit" parent="Email" unique_id=957612094]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -29.0
+offset_right = 60.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_afca7")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = ExtResource("3_afca7")
 
-[node name="Label" type="Label" parent="." unique_id=1914760357]
-offset_left = -20.0
-offset_top = -54.0
-offset_right = 20.0
-offset_bottom = -46.0
+[node name="EmailLabel" type="Label" parent="Email" unique_id=1914760357]
+offset_left = -60.0
+offset_top = -41.0
+offset_right = -20.0
+offset_bottom = -33.0
 theme_override_fonts/font = ExtResource("2_afca7")
 theme_override_font_sizes/font_size = 8
 text = "Enter email"
+
+[node name="Phrase" type="Node2D" parent="." unique_id=387743085]
+visible = false
+position = Vector2(0, 12)
+
+[node name="YesButton" type="Button" parent="Phrase" unique_id=1452259777]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 60.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_afca7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("3_afca7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bbdy7")
+text = "Yes"
+metadata/_edit_use_anchors_ = true
+
+[node name="NoButton" type="Button" parent="Phrase" unique_id=801892539]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_afca7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_fc3cw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bbdy7")
+text = "No"
+metadata/_edit_use_anchors_ = true
+
+[node name="EmailLabel" type="Label" parent="Phrase" unique_id=1826483254]
+offset_left = -58.0
+offset_top = -60.0
+offset_right = 58.0
+offset_bottom = -40.0
+theme_override_fonts/font = ExtResource("2_afca7")
+theme_override_font_sizes/font_size = 8
+text = "Email sent!
+Is this phrase included in the email:"
+
+[node name="Phrase" type="Label" parent="Phrase" unique_id=1518893610]
+offset_left = -58.0
+offset_top = -30.0
+offset_right = 58.0
+offset_bottom = -22.0
+theme_override_fonts/font = ExtResource("2_afca7")
+theme_override_font_sizes/font_size = 8
+text = "phrase-goes-here"
+
+[node name="Code" type="Node2D" parent="." unique_id=1716596082]
+visible = false
+
+[node name="SubmitButton" type="Button" parent="Code" unique_id=852021603]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 7.0
+offset_right = 66.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_afca7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("3_afca7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bbdy7")
+text = "Submit"
+
+[node name="CancelButton" type="Button" parent="Code" unique_id=422913625]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = 7.0
+offset_right = -1.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_afca7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_dtqtj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bbdy7")
+text = "Cancel"
+
+[node name="CodeInput" type="LineEdit" parent="Code" unique_id=501845047]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -31.0
+offset_right = 66.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_dtqtj")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_sh3bq")
+max_length = 6
+context_menu_enabled = false
+emoji_menu_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="CodeLabel" type="Label" parent="Code" unique_id=1718531133]
+offset_left = -65.0
+offset_top = -41.0
+offset_right = 36.0
+offset_bottom = -33.0
+theme_override_fonts/font = ExtResource("2_afca7")
+theme_override_font_sizes/font_size = 8
+text = "Enter the code from the email"
+
+[connection signal="pressed" from="Email/LoginButton" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="Phrase/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="Code/SubmitButton" to="." method="_on_submit_button_pressed"]
