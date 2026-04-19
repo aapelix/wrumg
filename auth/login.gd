@@ -59,11 +59,9 @@ func _send_otp():
 		
 	return false
 
-func _on_otp_request_completed(_res, code, headers: Array[String], body):
+func _on_otp_request_completed(_res, code, headers: Array[String], _body):
 	if not code == 201:
 		return false
-	
-	var json = JSON.parse_string(body.get_string_from_utf8())
 	
 	var cookies: Array[String] = []
 	
@@ -72,7 +70,7 @@ func _on_otp_request_completed(_res, code, headers: Array[String], body):
 			var cookie = h.substr("Set-Cookie: ".length())
 			var pairs = cookie.split("; ")
 			var value = pairs[0]
-			cookies.append(value.replace("=", ":"))
+			cookies.append(value)
 	
 	Session.save(cookies)
 
